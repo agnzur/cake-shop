@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+
 export const Home = () => {
   return (
     <>
       <div id="background-image">
         <div id="order-button-container">
-          <button id="order-button" class="buttons">
-            Złóż zamówienie{" "}
-          </button>
+          <Link to="/shop">
+            <button id="order-button" className="buttons">
+              Złóż zamówienie{" "}
+            </button>
+          </Link>
         </div>
       </div>
     </>
