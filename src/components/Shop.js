@@ -15,9 +15,20 @@ export const Shop = () => {
           </button>
         </div>
       </div>
-
+      <div className="heading">Składanie zamówienia</div>
       <div className="grid-container">
-        <div className="heading">Składanie zamówienia</div>
+        {/* Add template here */}
+
+        <div id="order-grid">
+          <div className="order-widget">Jabłecznik</div>
+          <div className="order-widget">Jabłecznik</div>
+          <div className="order-widget">Jabłecznik</div>
+          <div className="order-widget">Jabłecznik</div>
+          <div className="order-widget">Jabłecznik</div>
+          <div className="order-widget">Jabłecznik</div>
+          <div className="order-widget">Jabłecznik</div>
+          <div className="order-widget">Jabłecznik</div>
+        </div>
       </div>
     </>
   );
