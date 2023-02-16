@@ -4,7 +4,7 @@ export const Home = () => {
   return (
     <>
       <div id="background-image">
-        <div id="order-button-container">
+        <div className="order-button-container">
           <Link to="/shop">
             <button id="order-button" className="buttons">
               Złóż zamówienie{" "}

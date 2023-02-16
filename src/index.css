@@ -1,3 +1,5 @@
+/* File with CSS for Topbar and Footer and other things common to routes*/
+
 * {
   font-family: "Cormorant", serif;
   font-weight: 600;
@@ -44,78 +46,6 @@ body {
   #page-title {
     font-size: 55px;
   }
-}
-
-#order-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-#order-button {
-  padding: 20px;
-  font-size: 35px;
-  color: #e18234;
-  transition: 0.4s;
-  background-color: white;
-  border: 2px solid white;
-}
-
-#order-button:hover {
-  cursor: pointer;
-  color: white;
-  background-color: #e18234b8;
-  border: 2px solid #e18234b8;
-}
-
-#footer {
-  padding: 30px 20px 30px;
-  background-color: #6b6969d5;
-  font-size: 19px;
-  color: rgba(255, 255, 255, 0.834);
-  border-top: 2px solid rgba(128, 128, 128, 0.565);
-}
-
-.contact-icon {
-  width: 18px;
-  margin: 2px;
-}
-
-/* Second Route */
-
-#cart-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 10px;
-}
-
-#cart-icon {
-  padding: 10px;
-  opacity: 60%;
-}
-
-#cart-info {
-  font-size: 25px;
-  padding: 5px 10px 5px 5px;
-  opacity: 60%;
-}
-
-#shop-button {
-  margin: 10px;
-  color: white;
-  background-color: #e18234;
-  font-size: 20px;
-  opacity: 75%;
-  border: 2px solid #e18234b8;
-  padding: 10px 20px;
-  transition: 0.4s;
-}
-
-#shop-button:hover {
-  cursor: pointer;
-  opacity: 100%;
 }
 
 .heading {

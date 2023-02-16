@@ -1,8 +1,8 @@
 export const Shop = () => {
   return (
     <>
-      <div id="cart-container">
-        <div id="icon-container">
+      <div className="cart-container">
+        <div className="icon-container">
           <img
             src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart--v1.png"
             id="cart-icon"
@@ -16,7 +16,7 @@ export const Shop = () => {
         </div>
       </div>
 
-      <div id="grid-container">
+      <div className="grid-container">
         <div className="heading">Składanie zamówienia</div>
       </div>
     </>
