@@ -1,4 +1,18 @@
+import { AddToCartButon } from "./AddToCartButton";
+import { useState, useEffect } from "react";
+import { getAvailableCakes } from "./Api";
+import { CakeGridItem } from "./CakeGridItem";
+
 export const Shop = () => {
+  const [itemsCount, setItemsCount] = useState(0);
+  const [availableCakes, setAvailableCakes] = useState([]);
+
+  useEffect(() => {
+    getAvailableCakes().then((x) => {
+      setAvailableCakes(x);
+    });
+  }, []);
+
   return (
     <>
       <div className="cart-container">
@@ -8,7 +22,7 @@ export const Shop = () => {
             id="cart-icon"
           />
         </div>
-        <div id="cart-info">0</div>
+        <div id="cart-quantity">{itemsCount}</div>
         <div id="shop-button-container">
           <button id="shop-button" className="buttons">
             Przejdź dalej
@@ -16,18 +30,12 @@ export const Shop = () => {
         </div>
       </div>
       <div className="heading">Składanie zamówienia</div>
+      <AddToCartButon setItemsCount={setItemsCount} />
       <div className="grid-container">
-        {/* Add template here */}
-
         <div id="order-grid">
-          <div className="order-widget">Jabłecznik</div>
-          <div className="order-widget">Jabłecznik</div>
-          <div className="order-widget">Jabłecznik</div>
-          <div className="order-widget">Jabłecznik</div>
-          <div className="order-widget">Jabłecznik</div>
-          <div className="order-widget">Jabłecznik</div>
-          <div className="order-widget">Jabłecznik</div>
-          <div className="order-widget">Jabłecznik</div>
+          {availableCakes.map((cake) => {
+            return <CakeGridItem cakeName={cake.name} key={cake.id} />;
+          })}
         </div>
       </div>
     </>
