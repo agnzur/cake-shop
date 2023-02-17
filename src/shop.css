@@ -34,24 +34,55 @@
 }
 
 .grid-container {
-  padding: 20px;
-  margin-bottom: 100px;
+  margin: 50px 25px 100px;
 }
 
 #order-grid {
   display: grid;
-  justify-content: center;
   grid-template-columns: repeat(auto-fill, 20em);
-  grid-template-rows: repeat(auto-fill, 10em);
-  justify-items: center;
+  grid-auto-rows: 1fr;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .order-widget {
-  border: 2px solid black;
-  opacity: 50%;
-  padding: 50px;
-  font-size: 30px;
+  display: grid;
+
+  border: 2px solid rgba(128, 128, 128, 0.565);
+  color: rgb(99, 98, 98, 0.88);
+  padding: 30px;
+  font-size: 20px;
+  justify-items: center;
+}
+
+.cake-image {
+  width: 100%;
+  height: 13rem;
+  object-fit: cover;
+}
+
+.cake-price {
+  font-size: 24px;
+}
+
+#cart-button {
+  margin-top: 5px;
+  padding: 5px 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid white;
+  background-color: #849882;
+  transition: 0.4s;
+}
+
+#cart-button:hover {
+  cursor: pointer;
+  background-color: #e18234;
+  border: 2px solid #e18234;
+}
+
+.order-widget-info {
+  margin: 3px;
 }

@@ -34,7 +34,14 @@ export const Shop = () => {
       <div className="grid-container">
         <div id="order-grid">
           {availableCakes.map((cake) => {
-            return <CakeGridItem cakeName={cake.name} key={cake.id} />;
+            return (
+              <CakeGridItem
+                cakeName={cake.name}
+                key={cake.id}
+                cakeImage={cake.imageUrl}
+                cakePrice={cake.price}
+              />
+            );
           })}
         </div>
       </div>
