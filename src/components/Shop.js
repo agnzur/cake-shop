@@ -4,12 +4,24 @@ import { CakeGridItem } from "./CakeGridItem";
 
 export const Shop = () => {
   const [availableCakes, setAvailableCakes] = useState([]);
+  const [order, setOrder] = useState([
+    {
+      id: 101,
+      quantity: 2,
+    },
+    {
+      id: 102,
+      quantity: 1,
+    },
+  ]);
 
   useEffect(() => {
     getAvailableCakes().then((x) => {
       setAvailableCakes(x);
     });
   }, []);
+
+  const orderQuantity = order.map((x) => x.quantity).reduce((a, c) => a + c, 0);
 
   return (
     <>
@@ -20,7 +32,7 @@ export const Shop = () => {
             id="cart-icon"
           />
         </div>
-        <div id="cart-quantity"></div>
+        <div id="cart-quantity">{orderQuantity}</div>
         <div id="shop-button-container">
           <button id="shop-button" className="buttons">
             Przejdź dalej
@@ -34,10 +46,12 @@ export const Shop = () => {
           {availableCakes.map((cake) => {
             return (
               <CakeGridItem
+                cakeId={cake.id}
                 cakeName={cake.name}
                 key={cake.id}
                 cakeImage={cake.imageUrl}
                 cakePrice={cake.price}
+                setOrder={setOrder}
               />
             );
           })}
