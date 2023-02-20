@@ -1,10 +1,8 @@
-import { AddToCartButon } from "./AddToCartButton";
 import { useState, useEffect } from "react";
 import { getAvailableCakes } from "./Api";
 import { CakeGridItem } from "./CakeGridItem";
 
 export const Shop = () => {
-  const [itemsCount, setItemsCount] = useState(0);
   const [availableCakes, setAvailableCakes] = useState([]);
 
   useEffect(() => {
@@ -22,7 +20,7 @@ export const Shop = () => {
             id="cart-icon"
           />
         </div>
-        <div id="cart-quantity">{itemsCount}</div>
+        <div id="cart-quantity"></div>
         <div id="shop-button-container">
           <button id="shop-button" className="buttons">
             Przejdź dalej
@@ -30,7 +28,7 @@ export const Shop = () => {
         </div>
       </div>
       <div className="heading">Składanie zamówienia</div>
-      <AddToCartButon setItemsCount={setItemsCount} />
+
       <div className="grid-container">
         <div id="order-grid">
           {availableCakes.map((cake) => {
