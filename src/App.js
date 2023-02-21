@@ -4,6 +4,7 @@ import { Topbar } from "./components/Topbar";
 import { Home } from "./components/Home";
 import { Footer } from "./components/Footer";
 import { Shop } from "./components/Shop";
+import { ZmienionyArr } from "./ZmienionyArr";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+
+          <Route path="/summary" />
         </Routes>
       </BrowserRouter>
       <Footer />

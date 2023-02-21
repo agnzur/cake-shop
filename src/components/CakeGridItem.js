@@ -1,15 +1,18 @@
+import { AddToCartButton } from "./AddToCartButton";
+
 export const CakeGridItem = ({
   cakeId,
   cakeName,
   cakeImage,
   cakePrice,
   setOrder,
+  order,
 }) => {
-  const addNewCake = () => {
-    setOrder((order) => {
-      return [...order, { id: cakeId, quantity: 1 }];
-    });
-  };
+  //todo: czy da sie to zapisac latwiej? chyba z pytajnikiem jakos -- max 5 minut
+
+  const cakeInOrder = order.find((x) => x.id === cakeId);
+  const numberOfCakes = cakeInOrder === undefined ? 0 : cakeInOrder.quantity;
+
   return (
     <div className="order-widget">
       <img src={cakeImage} className="cake-image order-widget-info" />
@@ -17,13 +20,11 @@ export const CakeGridItem = ({
       <div className="order-widget-info">
         Cena: <span className="cake-price">{cakePrice}</span> zł
       </div>
-      <button
-        id="cart-button"
-        className="order-widget-info"
-        onClick={addNewCake}
-      >
-        Dodaj
-      </button>
+      <AddToCartButton
+        numberOfCakes={numberOfCakes}
+        setOrder={setOrder}
+        cakeId={cakeId}
+      />
     </div>
   );
 };

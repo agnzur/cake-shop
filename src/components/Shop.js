@@ -4,16 +4,7 @@ import { CakeGridItem } from "./CakeGridItem";
 
 export const Shop = () => {
   const [availableCakes, setAvailableCakes] = useState([]);
-  const [order, setOrder] = useState([
-    {
-      id: 101,
-      quantity: 2,
-    },
-    {
-      id: 102,
-      quantity: 1,
-    },
-  ]);
+  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     getAvailableCakes().then((x) => {
@@ -52,6 +43,7 @@ export const Shop = () => {
                 cakeImage={cake.imageUrl}
                 cakePrice={cake.price}
                 setOrder={setOrder}
+                order={order}
               />
             );
           })}
