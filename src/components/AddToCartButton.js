@@ -1,7 +1,16 @@
-export const AddToCartButton = ({ numberOfCakes, setOrder, cakeId }) => {
+export const AddToCartButton = ({
+  numberOfCakes,
+  setOrder,
+  cakeId,
+  cakeName,
+  cakePrice,
+}) => {
   const addNewCake = () => {
     setOrder((order) => {
-      return [...order, { id: cakeId, quantity: 1 }];
+      return [
+        ...order,
+        { id: cakeId, quantity: 1, name: cakeName, price: cakePrice },
+      ];
     });
   };
 
@@ -11,18 +20,26 @@ export const AddToCartButton = ({ numberOfCakes, setOrder, cakeId }) => {
         if (x.id !== cakeId) return x;
         return {
           id: cakeId,
+          name: cakeName,
           quantity: x.quantity + 1,
+          price: cakePrice,
         };
       });
     });
   };
+
   const removeCake = () => {
     setOrder((order) => {
       return order
         .map((x) => {
           if (x.id !== cakeId) return x;
           if (x.quantity === 1) return undefined;
-          return { id: cakeId, quantity: x.quantity - 1 };
+          return {
+            id: cakeId,
+            name: cakeName,
+            quantity: x.quantity - 1,
+            price: cakePrice,
+          };
         })
         .filter((x) => x !== undefined);
     });

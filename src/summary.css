@@ -1,0 +1,75 @@
+.summary-heading {
+  margin-top: 20px;
+}
+
+#summary-section {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 25px;
+  padding: 20px;
+}
+
+.summary-item-container,
+.total-sum {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.total-sum {
+  color: #e18234;
+}
+
+.total-sum-container {
+  border-top: 2px solid rgba(128, 128, 128, 0.565);
+  border-bottom: 2px solid rgba(128, 128, 128, 0.565);
+}
+
+.summary-details {
+  color: rgb(99, 98, 98, 0.88);
+}
+
+.inputs-container {
+  padding: 20px 0;
+  color: rgb(99, 98, 98, 0.88);
+}
+
+.field-container {
+  padding: 10px 0;
+}
+
+label {
+  font-size: 1.1rem;
+}
+
+.client-data-field {
+  color: rgb(99, 98, 98, 0.88);
+  padding: 10px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 20px;
+}
+
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#submit-button {
+  margin: 5px 0 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid white;
+  background-color: #849882;
+  transition: 0.4s;
+}
+
+#submit-button:hover {
+  cursor: pointer;
+  background-color: #e18234;
+  border: 2px solid #e18234;
+}

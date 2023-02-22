@@ -48,7 +48,6 @@
 
 .order-widget {
   display: grid;
-
   border: 2px solid rgba(128, 128, 128, 0.565);
   color: rgb(99, 98, 98, 0.88);
   padding: 30px;

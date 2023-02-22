@@ -24,6 +24,8 @@ export const CakeGridItem = ({
         numberOfCakes={numberOfCakes}
         setOrder={setOrder}
         cakeId={cakeId}
+        cakeName={cakeName}
+        cakePrice={cakePrice}
       />
     </div>
   );

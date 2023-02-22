@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getAvailableCakes } from "./Api";
 import { CakeGridItem } from "./CakeGridItem";
 
-export const Shop = () => {
+export const Shop = ({ order, setOrder }) => {
   const [availableCakes, setAvailableCakes] = useState([]);
-  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     getAvailableCakes().then((x) => {
@@ -25,9 +25,10 @@ export const Shop = () => {
         </div>
         <div id="cart-quantity">{orderQuantity}</div>
         <div id="shop-button-container">
-          <button id="shop-button" className="buttons">
-            Przejdź dalej
-          </button>
+          <Link to="/summary?">
+            {" "}
+            <button id="shop-button">Przejdź dalej</button>
+          </Link>
         </div>
       </div>
       <div className="heading">Składanie zamówienia</div>
