@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getAvailableCakes } from "../Api";
 import { CakeGridItem } from "./CakeGridItem";
+import { GoToSummaryButton } from "./GoToSummaryButton";
 
 export const Shop = ({ order, setOrder }) => {
   const [availableCakes, setAvailableCakes] = useState([]);
@@ -17,19 +17,14 @@ export const Shop = ({ order, setOrder }) => {
   return (
     <>
       <div className="cart-container">
-        <div className="icon-container">
-          <img
-            src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart--v1.png"
-            id="cart-icon"
-          />
-        </div>
+        <img
+          src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart--v1.png"
+          id="cart-icon"
+        />
+
         <div id="cart-quantity">{orderQuantity}</div>
-        <div id="shop-button-container">
-          <Link to="/summary?">
-            {" "}
-            <button id="shop-button">Przejdź dalej</button>
-          </Link>
-        </div>
+
+        <GoToSummaryButton orderQuantity={orderQuantity} />
       </div>
       <div className="heading">Składanie zamówienia</div>
 

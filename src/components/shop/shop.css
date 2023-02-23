@@ -17,20 +17,29 @@
   opacity: 50%;
 }
 
-#shop-button {
+#go-to-summary-button {
   margin: 10px;
   color: white;
-  background-color: #e18234;
   font-size: 20px;
-  opacity: 75%;
-  border: 2px solid #e18234b8;
   padding: 10px 20px;
   transition: 0.4s;
 }
 
-#shop-button:hover {
+.go-to-summary-button-disabled {
+  cursor: not-allowed;
+  background-color: #84988288;
+  border: 2px solid white;
+}
+
+.go-to-summary-button-enabled {
+  background-color: #e18234c9;
+  border: 2px solid white;
+}
+
+.go-to-summary-button-enabled:hover {
+  background-color: #e18234;
+  border: 2px solid #e18234;
   cursor: pointer;
-  opacity: 100%;
 }
 
 .grid-container {
