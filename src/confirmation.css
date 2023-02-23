@@ -1,0 +1,14 @@
+.heading-container {
+  display: flex;
+  margin: 100px 200px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#confirmation-heading {
+  background-color: #849882;
+  color: white;
+  font-size: 40px;
+  padding: 100px;
+  align-items: center;
+}

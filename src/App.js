@@ -6,6 +6,7 @@ import { Home } from "./components/Home";
 import { Footer } from "./components/Footer";
 import { Shop } from "./components/Shop";
 import { Summary } from "./components/Summary";
+import { OrderConfirmation } from "./components/OrderConfirmation";
 
 function App() {
   const [order, setOrder] = useState([]);
@@ -20,6 +21,7 @@ function App() {
             element={<Shop order={order} setOrder={setOrder} />}
           />
           <Route path="/summary" element={<Summary order={order} />} />
+          <Route path="/confirmation" element={<OrderConfirmation />} />
         </Routes>
       </BrowserRouter>
       <Footer />

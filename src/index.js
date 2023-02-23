@@ -4,6 +4,7 @@ import "./index.css";
 import "./home.css";
 import "./shop.css";
 import "./summary.css";
+import "./confirmation.css";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

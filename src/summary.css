@@ -64,12 +64,19 @@ label {
   font-weight: bold;
   color: white;
   border: 2px solid white;
-  background-color: #849882;
   transition: 0.4s;
 }
 
-#submit-button:hover {
+.submit-enabled {
+  background-color: #849882;
+}
+.submit-enabled:hover {
   cursor: pointer;
   background-color: #e18234;
   border: 2px solid #e18234;
+}
+
+.submit-disabled {
+  cursor: not-allowed;
+  background-color: #84988288;
 }
