@@ -2,11 +2,11 @@ import React from "react";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Topbar } from "./components/Topbar";
-import { Home } from "./components/Home";
+import { Home } from "./components/home/Home";
 import { Footer } from "./components/Footer";
-import { Shop } from "./components/Shop";
-import { Summary } from "./components/Summary";
-import { OrderConfirmation } from "./components/OrderConfirmation";
+import { Shop } from "./components/shop/Shop";
+import { Summary } from "./components/summary/Summary";
+import { OrderConfirmation } from "./components/orderConfirmation/OrderConfirmation";
 
 function App() {
   const [order, setOrder] = useState([]);

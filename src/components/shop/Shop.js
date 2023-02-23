@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAvailableCakes } from "./Api";
+import { getAvailableCakes } from "../Api";
 import { CakeGridItem } from "./CakeGridItem";
 
 export const Shop = ({ order, setOrder }) => {
