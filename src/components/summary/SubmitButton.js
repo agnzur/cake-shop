@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { placeOrderDetails } from "./Api";
 
-export const SubmitButton = ({ name, lastName, email, orderDate }) => {
+export const SubmitButton = ({ name, lastName, email, orderDate, order }) => {
+  const navigate = useNavigate();
+
   const isButtonDisabled = () => {
     const numRegex = new RegExp("[0-9]");
     const charactersRegex = new RegExp("^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$");
@@ -15,17 +18,28 @@ export const SubmitButton = ({ name, lastName, email, orderDate }) => {
     if (orderDate < new Date()) return true;
   };
 
+  const onSubmitClicked = async () => {
+    const orderNumber = await placeOrderDetails(
+      name,
+      lastName,
+      email,
+      orderDate,
+      order
+    );
+
+    navigate("/confirmation?orderNumber=" + orderNumber);
+  };
+
   return (
     <div className="submit-button-container">
-      <Link to="/confirmation">
-        <button
-          id="submit-button"
-          className={isButtonDisabled() ? "submit-disabled" : "submit-enabled"}
-          disabled={isButtonDisabled()}
-        >
-          Potwierdź
-        </button>
-      </Link>
+      <button
+        id="submit-button"
+        className={isButtonDisabled() ? "submit-disabled" : "submit-enabled"}
+        disabled={isButtonDisabled()}
+        onClick={onSubmitClicked}
+      >
+        Potwierdź
+      </button>
     </div>
   );
 };

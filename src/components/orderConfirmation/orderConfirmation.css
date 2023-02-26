@@ -10,5 +10,8 @@
   color: white;
   font-size: 40px;
   padding: 100px;
-  align-items: center;
+}
+
+#order-number {
+  text-decoration: underline;
 }

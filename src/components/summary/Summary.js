@@ -9,8 +9,6 @@ const getTomorrowDate = () => {
   return tomorrow;
 };
 
-function getOrderDetails() {}
-
 export const Summary = ({ order }) => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -60,6 +58,7 @@ export const Summary = ({ order }) => {
         lastName={lastName}
         email={email}
         orderDate={orderDate}
+        order={order}
       />
     </>
   );
