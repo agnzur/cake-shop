@@ -3,13 +3,19 @@ import { getAvailableCakes } from "../Api";
 import { CakeGridItem } from "./CakeGridItem";
 import { GoToSummaryButton } from "./GoToSummaryButton";
 
-export const Shop = ({ order, setOrder }) => {
+export const Shop = () => {
   const [availableCakes, setAvailableCakes] = useState([]);
+  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     getAvailableCakes().then((x) => {
       setAvailableCakes(x);
     });
+  }, []);
+
+  useEffect(() => {
+    const orderFromSessionStorage = JSON.parse(sessionStorage.getItem("order"));
+    if (orderFromSessionStorage !== null) setOrder(orderFromSessionStorage);
   }, []);
 
   const orderQuantity = order.map((x) => x.quantity).reduce((a, c) => a + c, 0);

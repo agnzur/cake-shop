@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ClientInputs } from "./ClientInputs";
 import { SubmitButton } from "./SubmitButton";
 import { SummaryItem } from "./SummaryItem";
@@ -9,11 +9,17 @@ const getTomorrowDate = () => {
   return tomorrow;
 };
 
-export const Summary = ({ order }) => {
+export const Summary = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [orderDate, setOrderDate] = useState(getTomorrowDate());
+  const [order, setOrder] = useState([]);
+
+  useEffect(() => {
+    const orderFromSessionStorage = JSON.parse(sessionStorage.getItem("order"));
+    if (orderFromSessionStorage !== null) setOrder(orderFromSessionStorage);
+  }, []);
 
   const getTotalSum = () => {
     return order.map((x) => x.price * x.quantity).reduce((a, c) => a + c, 0);

@@ -8,11 +8,6 @@ export const CakeGridItem = ({
   setOrder,
   order,
 }) => {
-  //todo: czy da sie to zapisac latwiej? chyba z pytajnikiem jakos -- max 5 minut
-
-  const cakeInOrder = order.find((x) => x.id === cakeId);
-  const numberOfCakes = cakeInOrder === undefined ? 0 : cakeInOrder.quantity;
-
   return (
     <div className="order-widget">
       <img src={cakeImage} className="cake-image order-widget-info" />
@@ -21,7 +16,7 @@ export const CakeGridItem = ({
         Cena: <span className="cake-price">{cakePrice}</span> zł
       </div>
       <AddToCartButton
-        numberOfCakes={numberOfCakes}
+        order={order}
         setOrder={setOrder}
         cakeId={cakeId}
         cakeName={cakeName}

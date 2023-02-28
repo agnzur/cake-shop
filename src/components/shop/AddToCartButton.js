@@ -1,48 +1,57 @@
 export const AddToCartButton = ({
-  numberOfCakes,
+  order,
   setOrder,
   cakeId,
   cakeName,
   cakePrice,
 }) => {
+  //todo: czy da sie to zapisac latwiej? chyba z pytajnikiem jakos -- max 5 minut
+  const currentCake = order.find((x) => x.id === cakeId);
+  const numberOfCakes = currentCake === undefined ? 0 : currentCake.quantity;
+
+  const saveOrderInSessionStorage = (order) => {
+    sessionStorage.setItem("order", JSON.stringify(order));
+  };
+
   const addNewCake = () => {
-    setOrder((order) => {
-      return [
-        ...order,
-        { id: cakeId, quantity: 1, name: cakeName, price: cakePrice },
-      ];
-    });
+    const newOrder = [
+      ...order,
+      { id: cakeId, quantity: 1, name: cakeName, price: cakePrice },
+    ];
+    setOrder(newOrder);
+    saveOrderInSessionStorage(newOrder);
   };
 
   const increaseQuantity = () => {
-    setOrder((order) => {
-      return order.map((x) => {
+    const newOrder = order.map((x) => {
+      if (x.id !== cakeId) return x;
+      return {
+        id: cakeId,
+        name: cakeName,
+        quantity: x.quantity + 1,
+        price: cakePrice,
+      };
+    });
+
+    setOrder(newOrder);
+    saveOrderInSessionStorage(newOrder);
+  };
+
+  const removeCake = () => {
+    const newOrder = order
+      .map((x) => {
         if (x.id !== cakeId) return x;
         return {
           id: cakeId,
           name: cakeName,
-          quantity: x.quantity + 1,
+          quantity: x.quantity - 1,
           price: cakePrice,
         };
-      });
-    });
-  };
+      })
+      .filter((x) => x.quantity > 0);
 
-  const removeCake = () => {
-    setOrder((order) => {
-      return order
-        .map((x) => {
-          if (x.id !== cakeId) return x;
-          if (x.quantity === 1) return undefined;
-          return {
-            id: cakeId,
-            name: cakeName,
-            quantity: x.quantity - 1,
-            price: cakePrice,
-          };
-        })
-        .filter((x) => x !== undefined);
-    });
+    setOrder(newOrder);
+    saveOrderInSessionStorage(newOrder);
   };
 
   return (
