@@ -1,3 +1,4 @@
+/* Summary and SummaryItems components */
 .summary-heading {
   margin-top: 20px;
 }
@@ -30,6 +31,7 @@
   color: rgb(99, 98, 98, 0.88);
 }
 
+/* ClientInputs component */
 .inputs-container {
   padding: 20px 0;
   color: rgb(99, 98, 98, 0.88);
@@ -52,6 +54,7 @@ label {
   font-size: 20px;
 }
 
+/* SubmitButton component */
 .submit-button-container {
   display: flex;
   justify-content: center;

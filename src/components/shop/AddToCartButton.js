@@ -5,7 +5,6 @@ export const AddToCartButton = ({
   cakeName,
   cakePrice,
 }) => {
-  //todo: czy da sie to zapisac latwiej? chyba z pytajnikiem jakos -- max 5 minut
   const currentCake = order.find((x) => x.id === cakeId);
   const numberOfCakes = currentCake === undefined ? 0 : currentCake.quantity;
 
@@ -55,20 +54,18 @@ export const AddToCartButton = ({
   };
 
   return (
-    <>
+    <div>
       {numberOfCakes > 0 ? (
         <div>
           <button
-            id="cart-button"
-            className="order-widget-info"
+            className="order-widget-info add-to-cart-button"
             onClick={removeCake}
           >
             -
           </button>
           <span className="number-of-cakes-info">{numberOfCakes}</span>
           <button
-            id="cart-button"
-            className="order-widget-info"
+            className="order-widget-info add-to-cart-button"
             onClick={increaseQuantity}
           >
             +
@@ -76,13 +73,12 @@ export const AddToCartButton = ({
         </div>
       ) : (
         <button
-          id="cart-button"
-          className="order-widget-info"
+          className="order-widget-info add-to-cart-button"
           onClick={addNewCake}
         >
           Dodaj
         </button>
       )}
-    </>
+    </div>
   );
 };

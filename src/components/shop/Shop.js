@@ -22,34 +22,30 @@ export const Shop = () => {
 
   return (
     <>
-      <div className="cart-container">
+      <div className="cart-area-container">
         <img
           src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart--v1.png"
           id="cart-icon"
         />
-
         <div id="cart-quantity">{orderQuantity}</div>
-
         <GoToSummaryButton orderQuantity={orderQuantity} />
       </div>
-      <div className="heading">Składanie zamówienia</div>
 
-      <div className="grid-container">
-        <div id="order-grid">
-          {availableCakes.map((cake) => {
-            return (
-              <CakeGridItem
-                cakeId={cake.id}
-                cakeName={cake.name}
-                key={cake.id}
-                cakeImage={cake.imageUrl}
-                cakePrice={cake.price}
-                setOrder={setOrder}
-                order={order}
-              />
-            );
-          })}
-        </div>
+      <div className="heading">Składanie zamówienia</div>
+      <div id="order-grid">
+        {availableCakes.map((cake) => {
+          return (
+            <CakeGridItem
+              cakeId={cake.id}
+              cakeName={cake.name}
+              key={cake.id}
+              cakeImage={cake.imageUrl}
+              cakePrice={cake.price}
+              setOrder={setOrder}
+              order={order}
+            />
+          );
+        })}
       </div>
     </>
   );

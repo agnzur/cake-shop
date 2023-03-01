@@ -1,5 +1,4 @@
 import React from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Topbar } from "./components/Topbar";
 import { Home } from "./components/home/Home";

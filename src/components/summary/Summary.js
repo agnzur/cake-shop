@@ -26,21 +26,18 @@ export const Summary = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="heading summary-heading">Twoje zamówienie</div>
-
       <div id="summary-section">
-        <div className="summary-details-conatiner">
-          <div className="summary-details">
-            {order.map((x) => (
-              <SummaryItem
-                key={x.id}
-                quantity={x.quantity}
-                name={x.name}
-                price={x.price}
-              />
-            ))}
-          </div>
+        <div className="summary-details">
+          {order.map((x) => (
+            <SummaryItem
+              key={x.id}
+              quantity={x.quantity}
+              name={x.name}
+              price={x.price}
+            />
+          ))}
         </div>
         <div className="total-sum-container">
           <div className="total-sum">
@@ -66,6 +63,6 @@ export const Summary = () => {
         orderDate={orderDate}
         order={order}
       />
-    </>
+    </div>
   );
 };

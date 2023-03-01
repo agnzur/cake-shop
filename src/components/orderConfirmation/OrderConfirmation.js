@@ -1,6 +1,5 @@
 export const OrderConfirmation = () => {
   const queryString = window.location.search;
-  console.log(queryString);
   const url = new URLSearchParams(queryString);
   const orderNumber = url.get("orderNumber");
 
