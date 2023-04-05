@@ -1,18 +1,28 @@
+import { OrderedCake } from "../OrderedCake";
+
+interface AddToCartButtonProps {
+  order: OrderedCake[];
+  setOrder: (order: OrderedCake[]) => void;
+  cakeId: number;
+  cakeName: string;
+  cakePrice: number;
+}
+
 export const AddToCartButton = ({
   order,
   setOrder,
   cakeId,
   cakeName,
   cakePrice,
-}) => {
+}: AddToCartButtonProps): React.ReactElement => {
   const currentCake = order.find((x) => x.id === cakeId);
   const numberOfCakes = currentCake === undefined ? 0 : currentCake.quantity;
 
-  const saveOrderInSessionStorage = (order) => {
+  const saveOrderInSessionStorage = (order: OrderedCake[]) => {
     sessionStorage.setItem("order", JSON.stringify(order));
   };
 
-  const addNewCake = () => {
+  const addNewCake = (): void => {
     const newOrder = [
       ...order,
       { id: cakeId, quantity: 1, name: cakeName, price: cakePrice },
@@ -21,7 +31,7 @@ export const AddToCartButton = ({
     saveOrderInSessionStorage(newOrder);
   };
 
-  const increaseQuantity = () => {
+  const increaseQuantity = (): void => {
     const newOrder = order.map((x) => {
       if (x.id !== cakeId) return x;
       return {
@@ -36,7 +46,7 @@ export const AddToCartButton = ({
     saveOrderInSessionStorage(newOrder);
   };
 
-  const removeCake = () => {
+  const removeCake = (): void => {
     const newOrder = order
       .map((x) => {
         if (x.id !== cakeId) return x;

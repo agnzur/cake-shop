@@ -1,3 +1,14 @@
+interface ClientInputsProps {
+  setName: (name: string) => void;
+  setLastName: (lastName: string) => void;
+  setEmail: (email: string) => void;
+  setOrderDate: (orderDate: Date) => void;
+  name: string;
+  lastName: string;
+  email: string;
+  orderDate: Date;
+}
+
 export const ClientInputs = ({
   setName,
   setLastName,
@@ -7,9 +18,9 @@ export const ClientInputs = ({
   lastName,
   email,
   orderDate,
-}) => {
+}: ClientInputsProps): React.ReactElement => {
   const orderDateString = orderDate.toISOString().split("T")[0];
-  const orderDateChanged = (e) => {
+  const orderDateChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     const stringDate = e.target.value;
     const date = new Date(stringDate);
     setOrderDate(date);

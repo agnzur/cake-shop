@@ -7,7 +7,7 @@ import { Shop } from "./components/shop/Shop";
 import { Summary } from "./components/summary/Summary";
 import { OrderConfirmation } from "./components/orderConfirmation/OrderConfirmation";
 
-function App() {
+function App(): React.ReactElement {
   return (
     <>
       <Topbar />

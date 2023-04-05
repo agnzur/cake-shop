@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ClientInputs } from "./ClientInputs";
 import { SubmitButton } from "./SubmitButton";
 import { SummaryItem } from "./SummaryItem";
+import { OrderedCake } from "../OrderedCake";
 
 const getTomorrowDate = () => {
   const tomorrow = new Date();
@@ -9,19 +10,21 @@ const getTomorrowDate = () => {
   return tomorrow;
 };
 
-export const Summary = () => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [orderDate, setOrderDate] = useState(getTomorrowDate());
-  const [order, setOrder] = useState([]);
+export const Summary = (): React.ReactElement => {
+  const [name, setName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [orderDate, setOrderDate] = useState<Date>(getTomorrowDate());
+  const [order, setOrder] = useState<OrderedCake[]>([]);
 
   useEffect(() => {
-    const orderFromSessionStorage = JSON.parse(sessionStorage.getItem("order"));
+    const orderString = sessionStorage.getItem("order");
+    if (orderString === null) return;
+    const orderFromSessionStorage = JSON.parse(orderString);
     if (orderFromSessionStorage !== null) setOrder(orderFromSessionStorage);
   }, []);
 
-  const getTotalSum = () => {
+  const getTotalSum = (): number => {
     return order.map((x) => x.price * x.quantity).reduce((a, c) => a + c, 0);
   };
 

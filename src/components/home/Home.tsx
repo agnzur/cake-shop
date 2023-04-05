@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const Home = () => {
+export const Home = (): React.ReactElement => {
   return (
     <div id="background-image">
       <div className="order-button-container">

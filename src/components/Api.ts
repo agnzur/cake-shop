@@ -1,4 +1,6 @@
-export async function getAvailableCakes() {
+import { Cake } from "./Cake";
+
+export async function getAvailableCakes(): Promise<Cake[]> {
   const cakeList = [
     {
       id: 101,

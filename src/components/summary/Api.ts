@@ -1,10 +1,20 @@
-export async function placeOrderDetails(
+import { OrderedCake } from "../OrderedCake";
+
+interface placeOrderDetailsProps {
+  name: string;
+  lastName: string;
+  email: string;
+  orderDate: Date;
+  order: OrderedCake[];
+}
+
+export async function placeOrderDetails({
   name,
   lastName,
   email,
   orderDate,
-  order
-) {
+  order,
+}: placeOrderDetailsProps) {
   console.log("Dane klienta:");
   console.log({
     name: name,

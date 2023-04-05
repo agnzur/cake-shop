@@ -1,4 +1,4 @@
-export const Footer = () => {
+export const Footer = (): React.ReactElement => {
   return (
     <div id="footer">
       Skontaktuj się z nami:

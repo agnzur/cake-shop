@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-export const GoToSummaryButton = ({ orderQuantity }) => {
+
+interface OrderQuantityProps {
+  orderQuantity: number;
+}
+
+export const GoToSummaryButton = ({
+  orderQuantity,
+}: OrderQuantityProps): React.ReactElement => {
   const isButtonDisabled = orderQuantity === 0;
   return (
     <Link to="/summary?">

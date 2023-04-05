@@ -1,4 +1,14 @@
+import { OrderedCake } from "../OrderedCake";
 import { AddToCartButton } from "./AddToCartButton";
+
+interface CakeGridItemProps {
+  cakeId: number;
+  cakeName: string;
+  cakeImage: string;
+  cakePrice: number;
+  setOrder: (order: OrderedCake[]) => void;
+  order: OrderedCake[];
+}
 
 export const CakeGridItem = ({
   cakeId,
@@ -7,7 +17,7 @@ export const CakeGridItem = ({
   cakePrice,
   setOrder,
   order,
-}) => {
+}: CakeGridItemProps): React.ReactElement => {
   return (
     <div className="order-widget">
       <img src={cakeImage} className="cake-image order-widget-info" />

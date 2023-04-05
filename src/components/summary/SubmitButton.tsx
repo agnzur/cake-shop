@@ -1,10 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import { placeOrderDetails } from "./Api";
+import { OrderedCake } from "../OrderedCake";
 
-export const SubmitButton = ({ name, lastName, email, orderDate, order }) => {
+interface SubmitButtonProps {
+  name: string;
+  lastName: string;
+  email: string;
+  orderDate: Date;
+  order: OrderedCake[];
+}
+
+export const SubmitButton = ({
+  name,
+  lastName,
+  email,
+  orderDate,
+  order,
+}: SubmitButtonProps): React.ReactElement => {
   const navigate = useNavigate();
 
-  const isButtonDisabled = () => {
+  const isButtonDisabled = (): boolean => {
     const numRegex = new RegExp("[0-9]");
     const charactersRegex = new RegExp("^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$");
     if (name.length < 3) return true;
@@ -16,16 +31,17 @@ export const SubmitButton = ({ name, lastName, email, orderDate, order }) => {
     if (email.length < 3) return true;
     if (!email.includes("@")) return true;
     if (orderDate < new Date()) return true;
+    return false;
   };
 
-  const onSubmitClicked = async () => {
-    const orderNumber = await placeOrderDetails(
+  const onSubmitClicked = async (): Promise<void> => {
+    const orderNumber = await placeOrderDetails({
       name,
       lastName,
       email,
       orderDate,
-      order
-    );
+      order,
+    });
 
     navigate("/confirmation?orderNumber=" + orderNumber);
   };

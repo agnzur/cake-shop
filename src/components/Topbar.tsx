@@ -1,4 +1,4 @@
-export const Topbar = () => {
+export const Topbar = (): React.ReactElement => {
   return (
     <div id="topbar">
       <div>
